@@ -14,6 +14,8 @@ public class Triangle {
 
 	public void setType(String type) {
 		this.type = type;
+		// spring is using this setter method in property tag in order to initialize the value 
+		// this is called setter injection
 	}
 
 
