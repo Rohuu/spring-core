@@ -11,9 +11,20 @@
 <!-- <constructor-arg value="20"/>  -->
 <!-- here integer value 20 is inside string, spring automatically sets the right type -->
 
-<constructor-arg value="20"/>
+<!-- <constructor-arg value="20"/> -->
 <!-- now if we pass 20 in cons-args , then here we have two separate constructors for both individual values and -->
 <!-- both values will written in string quotes, so  here spring gets confused that whether "20" is type or height-->
 <!-- for that we use type of property in constructor-args -->
+
+
+<!--   first way.... include type -->
+<!-- <constructor-arg type="java.lang.String" value="Isoscales"/> -->
+<!-- <constructor-arg type="int" value="500"/>  -->
+
+
+<!--   second way.... include index, index order is same as defined property order-->
+<constructor-arg index="0" value="Scalene"/>
+<constructor-arg index="1" value="700"/> 
+
 </bean>
 </beans>
