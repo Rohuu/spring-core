@@ -3,28 +3,27 @@
 
 <beans>
 <bean id="triangle" class="com.rohuu.drawingApp.Triangle">
-<!-- 	<property name="type" value="Equilateral" />  setter injection -->
-
-
-<!-- this is constructor injection, here we are setting values via calling that constructor which has 2 parameters-->
-<!-- <constructor-arg value="Isoscales"/> -->
-<!-- <constructor-arg value="20"/>  -->
-<!-- here integer value 20 is inside string, spring automatically sets the right type -->
-
-<!-- <constructor-arg value="20"/> -->
-<!-- now if we pass 20 in cons-args , then here we have two separate constructors for both individual values and -->
-<!-- both values will written in string quotes, so  here spring gets confused that whether "20" is type or height-->
-<!-- for that we use type of property in constructor-args -->
-
-
-<!--   first way.... include type -->
-<!-- <constructor-arg type="java.lang.String" value="Isoscales"/> -->
-<!-- <constructor-arg type="int" value="500"/>  -->
-
-
-<!--   second way.... include index, index order is same as defined property order-->
-<constructor-arg index="0" value="Scalene"/>
-<constructor-arg index="1" value="700"/> 
-
+<!-- here we will give reference of points to triangle class using property tag -->
+<!-- first from java class it will look for triangle bean then futher inside triangle bean there are multiple name and references -->
+<!-- then it will further dig deeper into it-->
+<property name="pointA" ref="firstPoint"/>
+<property name="pointB" ref="secondPoint"/>
+<property name="pointC" ref="thirdPoint"/>
 </bean>
+
+<bean id="firstPoint" class="com.rohuu.drawingApp.Point">
+<property name="x" value="0"/>
+<property name="y" value="0"/>
+</bean>
+
+<bean id="secondPoint" class="com.rohuu.drawingApp.Point">
+<property name="x" value="-20"/>
+<property name="y" value="0"/>
+</bean>
+
+<bean id="thirdPoint" class="com.rohuu.drawingApp.Point">
+<property name="x" value="20"/>
+<property name="y" value="0"/>
+</bean>
+
 </beans>
