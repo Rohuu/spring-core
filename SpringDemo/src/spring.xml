@@ -3,6 +3,14 @@
 
 <beans>
 <bean id="triangle" class="com.rohuu.drawingApp.Triangle">
-	<property name="type" value="Equilateral" />
+<!-- 	<property name="type" value="Equilateral" />  setter injection -->
+
+
+<!-- this is constructor injection, here we are setting values via calling that constructor which has 2 parameters-->
+<constructor-arg value="Isoscales"/>
+<constructor-arg value="20"/> 
+<!-- here integer value 20 is inside string, spring automatically sets the right type -->
+
+
 </bean>
 </beans>
