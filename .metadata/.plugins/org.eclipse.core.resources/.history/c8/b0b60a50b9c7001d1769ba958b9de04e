@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+/**
+ * @author user
+ *
+ */
+module SpringDemo {
+	requires spring.beans;
+	requires spring.core;
+}
