@@ -8,7 +8,7 @@
 <!-- then it will further dig deeper into it--> 
 
 
-<!-- initializing list via xml and inside list tag spring automatically converts each bean to a point since it is a list of Point-->
+<!-- initializing list via XML and inside list tag spring automatically converts each bean to a point since it is a list of Point-->
 <property name="points">
 <list>
 <ref bean="firstPoint"/>
