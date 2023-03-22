@@ -7,25 +7,15 @@
 <!-- first from java class it will look for triangle bean then futher inside triangle bean there are multiple name and references -->
 <!-- then it will further dig deeper into it--> 
 
-<property name="pointA" ref="firstPoint"/>
 
-<property name="pointB">
-<bean class="com.rohuu.drawingApp.Point">
-<property name="x" value="-10"/>
-<property name="y" value="0"/>
-</bean>
+<!-- initializing list via xml and inside list tag spring automatically converts each bean to a point since it is a list of Point-->
+<property name="points">
+<list>
+<ref bean="firstPoint"/>
+<ref bean="secondPoint"/>
+<ref bean="thirdPoint"/>
+</list>
 </property>
-
-<property name="pointC">
-<bean class="com.rohuu.drawingApp.Point">
-<property name="x" value="10"/>
-<property name="y" value="0"/>
-</bean>
-</property>
-
-<!-- here pointB and pointC are only for triangle but pointA can be accessed by other classes as well -->
-<!-- so we have kept pointA separately outside the triangle class and referenced by ref and have an id -->
-
 </bean>
 
 <bean id="firstPoint" class="com.rohuu.drawingApp.Point">
@@ -33,7 +23,16 @@
 <property name="y" value="0"/>
 </bean>
 
+<bean id="secondPoint" class="com.rohuu.drawingApp.Point">
+<property name="x" value="-20"/>
+<property name="y" value="0"/>
+</bean>
+
+<bean id="thirdPoint" class="com.rohuu.drawingApp.Point">
+<property name="x" value="20"/>
+<property name="y" value="0"/>
+</bean>
+
 <alias name="triangle" alias="triangle-alias"/>
-<!-- used to set alias name to any class -->
 
 </beans>
