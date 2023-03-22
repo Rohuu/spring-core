@@ -33,4 +33,7 @@
 <property name="y" value="0"/>
 </bean>
 
+<alias name="triangle" alias="triangle-alias"/>
+<!-- used to set alias name to any class -->
+
 </beans>
