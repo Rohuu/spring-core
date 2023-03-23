@@ -2,33 +2,23 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"  "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-<bean id="triangle" class="com.rohuu.drawingApp.Triangle">
-<!-- here we will give reference of points to triangle class using property tag -->
-<!-- first from java class it will look for triangle bean then futher inside triangle bean there are multiple name and references -->
-<!-- then it will further dig deeper into it--> 
-
-
-<!-- initializing list via XML and inside list tag spring automatically converts each bean to a point since it is a list of Point-->
-<property name="points">
-<list>
-<ref bean="firstPoint"/>
-<ref bean="secondPoint"/>
-<ref bean="thirdPoint"/>
-</list>
-</property>
+<bean id="triangle" class="com.rohuu.drawingApp.Triangle" autowire="byName">
+<!-- if we give the objects name same as property name then use autowire tag , spring will automatically refer to the properties -->
+<!-- then we don't have to write any property tag / dependency inside triangle class bean -->
+<!-- like change firstPoint name to pointA ..... and so on for others as well -->
 </bean>
 
-<bean id="firstPoint" class="com.rohuu.drawingApp.Point">
+<bean id="pointA" class="com.rohuu.drawingApp.Point">
 <property name="x" value="0"/>
 <property name="y" value="0"/>
 </bean>
 
-<bean id="secondPoint" class="com.rohuu.drawingApp.Point">
+<bean id="pointB" class="com.rohuu.drawingApp.Point">
 <property name="x" value="-20"/>
 <property name="y" value="0"/>
 </bean>
 
-<bean id="thirdPoint" class="com.rohuu.drawingApp.Point">
+<bean id="pointC" class="com.rohuu.drawingApp.Point">
 <property name="x" value="20"/>
 <property name="y" value="0"/>
 </bean>
