@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"  "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
-<beans>
-<bean id="parentTriangle" class="com.rohuu.drawingApp.Triangle" init-method="myInit" destroy-method="cleanUp">
+<beans default-init-method="myInit" default-destroy-method="cleanUp">
+<bean id="parentTriangle" class="com.rohuu.drawingApp.Triangle">
 <!-- common configuration can be written here in parent bean-->
 <property name="pointA" ref="pointA"/>
 </bean>
