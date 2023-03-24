@@ -4,10 +4,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
-
-
+	
 	public static void main(String[] args) {
-		
+	
 		// using bean factory to instantiate the Triangle class
 //		Triangle triangle= new Triangle();
 //		BeanFactory factory=new XmlBeanFactory(new FileSystemResource("spring.xml"));
