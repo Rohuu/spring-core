@@ -7,7 +7,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements InitializingBean, DisposableBean{ // if we want to know the name of bean
+public class Triangle{ // if we want to know the name of bean
 	
 	// since triangle is singleton , point A,B,C will also be created along with triangle, when is container is loaded, and they will be initialized
 	// even though points A,B,C are prototype, but they will be initialized only once because parent triangle is singleton.
@@ -67,26 +67,5 @@ public class Triangle implements InitializingBean, DisposableBean{ // if we want
 
 		System.out.println("Point C = ("+getPointC().getX()+ ", " +getPointC().getY()+")");
 
-	}
-
-
-	// using both spring's own init, destroy and our self init, destroy...... spring methods will be executed first
-
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("InitializingBean init method called for triangle");
-	}
-
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("DisposableBean destroy method called for triangle");	
-	}
-	
-	public void myInit() {
-		System.out.println("myInit method called for triangle");
-	}
-	
-	public void cleanUp() {
-		System.out.println("my cleanUp method called for triangle");
 	}
 }
