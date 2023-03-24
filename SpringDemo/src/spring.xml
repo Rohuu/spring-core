@@ -2,10 +2,19 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"  "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-<bean id="triangle" class="com.rohuu.drawingApp.Triangle" autowire="byName">
-<!-- if we give the objects name same as property name then use autowire tag , spring will automatically refer to the properties -->
-<!-- then we don't have to write any property tag / dependency inside triangle class bean -->
-<!-- like change firstPoint name to pointA ..... and so on for others as well -->
+<bean id="parentTriangle" class="com.rohuu.drawingApp.Triangle">
+<!-- common configuration can be written here in parent bean-->
+<property name="pointA" ref="pointA"/>
+</bean>
+
+<bean id="triangle1" class="com.rohuu.drawingApp.Triangle" parent="parentTriangle">
+<!-- by defining parent tag , it takes all properties from parent bean and include in itself-->
+<property name="pointB" ref="pointB"/>
+<property name="pointC" ref="pointC"/>
+</bean>
+
+<bean id="triangle2" class="com.rohuu.drawingApp.Triangle" parent="parentTriangle">
+<property name="pointB" ref="pointB"/>
 </bean>
 
 <bean id="pointA" class="com.rohuu.drawingApp.Point">
@@ -22,7 +31,5 @@
 <property name="x" value="20"/>
 <property name="y" value="0"/>
 </bean>
-
-<alias name="triangle" alias="triangle-alias"/>
 
 </beans>
