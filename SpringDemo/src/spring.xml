@@ -2,17 +2,18 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"  "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-<bean id="triangle" class="com.rohuu.drawingApp.Triangle">
-<property name="pointA" ref="pointA"/>
-<property name="pointB" ref="pointB"/>
-<property name="pointC" ref="pointC"/>
-</bean>
+<!-- <bean id="triangle" class="com.rohuu.drawingApp.Triangle"> -->
+<!-- <property name="pointA" ref="pointA"/> -->
+<!-- <property name="pointB" ref="pointB"/> -->
+<!-- <property name="pointC" ref="pointC"/> -->
+<!-- </bean> -->
 
-
-<bean id="pointA" class="com.rohuu.drawingApp.Point">
+<!-- here we changed id to center from pointA, then it automatically took byName mapping and since local variable name is also center so it wired that setCenter with this bean having id center -->
+<bean id="center" class="com.rohuu.drawingApp.Point">
 <property name="x" value="0"/>
 <property name="y" value="0"/>
 </bean>
+
 
 <bean id="pointB" class="com.rohuu.drawingApp.Point">
 <property name="x" value="-20"/>
@@ -29,7 +30,10 @@
 <!-- so that we giving those property necessary , we make annotation called @Required -->
 </bean>
 
-<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+
+<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/> -->
 <!-- again no dependency in circle, but this time this will not throw nullPointerException rather it will throw beanNotInitialized exception-->
 
 </beans>

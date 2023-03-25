@@ -1,6 +1,7 @@
 package com.rohuu.drawingApp;
 
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class Circle implements Shape {
 	
@@ -10,9 +11,9 @@ public class Circle implements Shape {
 		return center;
 	}
 	
-	@Required
-	// if this is not set before running the program then spring's beanPostProcessor will throw error
-	// for that we have to declare spring's postProcessor in xml
+	@Autowired
+	// Autowire happens byType but if there are more beans of same type then it checks byName and runs program(using byName)
+	// and if more beans have same type then it throws exception that it can't recognize bean....
 	public void setCenter(Point center) {
 		this.center = center;
 	}
