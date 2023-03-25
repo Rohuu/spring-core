@@ -25,7 +25,11 @@
 </bean>
 
 <bean id="circle" class="com.rohuu.drawingApp.Circle">
-<property name="center" ref="pointA"/>
+<!-- if we don't set the properties, then it will be null by default and will give null pointer exception-->
+<!-- so that we giving those property necessary , we make annotation called @Required -->
 </bean>
+
+<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+<!-- again no dependency in circle, but this time this will not throw nullPointerException rather it will throw beanNotInitialized exception-->
 
 </beans>
