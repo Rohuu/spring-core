@@ -14,8 +14,7 @@ public class DrawingApp {
 		
 		// using application context instead of bean factory
 		// in ApplicationContext we don't have to use FileSystemResource object
-		AbstractApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
-		context.registerShutdownHook();
+		ApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
 		Triangle triangle= (Triangle) context.getBean("triangle");    // using alias name
 		// we only have to call the top level bean that is triangle bean, further we don't have to call beans for each nested instances
 		// like here we have called triangle bean but not points inside that

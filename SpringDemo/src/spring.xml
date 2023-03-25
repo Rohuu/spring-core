@@ -10,8 +10,9 @@
 
 
 <bean id="pointA" class="com.rohuu.drawingApp.Point">
-<property name="x" value="0"/>
-<property name="y" value="0"/>
+<!-- adding property placeholder instead of actual values -->
+<property name="x" value="${pointA.pointX}"/>
+<property name="y" value="${pointA.pointY}"/>
 </bean>
 
 <bean id="pointB" class="com.rohuu.drawingApp.Point">
@@ -24,6 +25,13 @@
 <property name="y" value="0"/>
 </bean>
 
-<bean class="com.rohuu.drawingApp.DisplayNameBeanPostProcessor"/>
+
+<!-- spring's bean factory postProcessor -->
+<!-- this will look at external properties file, then look at spring.xml then wherever there are place holders , it will substitute those with values in properties file-->
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<!-- now xml needs to know the properties file, so configure it -->
+<property name="locations" value="pointsConfig.properties"/>
+</bean>
+
 
 </beans>
