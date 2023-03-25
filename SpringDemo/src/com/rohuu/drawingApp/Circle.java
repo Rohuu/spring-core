@@ -1,6 +1,7 @@
 package com.rohuu.drawingApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 
 public class Circle implements Shape {
@@ -11,9 +12,13 @@ public class Circle implements Shape {
 		return center;
 	}
 	
+//	but if we can't changes the id name...... then .... ?
+//	 then we use another annotation called @Qualifier
+	// first autowired mapping will be tested which is byType but if all types are same then 
+	// qualifire will check the qualified value, where value is mapped, we will get bean 
+	
 	@Autowired
-	// Autowire happens byType but if there are more beans of same type then it checks byName and runs program(using byName)
-	// and if more beans have same type then it throws exception that it can't recognize bean....
+	@Qualifier("circleRelated")
 	public void setCenter(Point center) {
 		this.center = center;
 	}

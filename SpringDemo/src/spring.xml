@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"  "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
-<beans>
-<!-- <bean id="triangle" class="com.rohuu.drawingApp.Triangle"> -->
-<!-- <property name="pointA" ref="pointA"/> -->
-<!-- <property name="pointB" ref="pointB"/> -->
-<!-- <property name="pointC" ref="pointC"/> -->
-<!-- </bean> -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util" 
+xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd 
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+
+<bean id="triangle" class="com.rohuu.drawingApp.Triangle">
+<property name="pointA" ref="pointA"/>
+<property name="pointB" ref="pointB"/>
+<property name="pointC" ref="pointC"/>
+</bean>
 
 <!-- here we changed id to center from pointA, then it automatically took byName mapping and since local variable name is also center so it wired that setCenter with this bean having id center -->
-<bean id="center" class="com.rohuu.drawingApp.Point">
+<!-- but if we can't changes the id name ,, then     ? -->
+<!-- then we use another annotation called @Qualifier -->
+<bean id="pointA" class="com.rohuu.drawingApp.Point">
+<qualifier value="circleRelated"/>
 <property name="x" value="0"/>
 <property name="y" value="0"/>
 </bean>
@@ -26,14 +37,8 @@
 </bean>
 
 <bean id="circle" class="com.rohuu.drawingApp.Circle">
-<!-- if we don't set the properties, then it will be null by default and will give null pointer exception-->
-<!-- so that we giving those property necessary , we make annotation called @Required -->
 </bean>
 
-<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
-
-
-<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/> -->
-<!-- again no dependency in circle, but this time this will not throw nullPointerException rather it will throw beanNotInitialized exception-->
-
+<context:annotation-config/>
+<!-- this tag will bring all the all the annotation class declarations -->
 </beans>
