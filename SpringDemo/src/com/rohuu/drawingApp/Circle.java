@@ -1,8 +1,9 @@
 package com.rohuu.drawingApp;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
 
 public class Circle implements Shape {
 	
@@ -17,8 +18,10 @@ public class Circle implements Shape {
 	// first autowired mapping will be tested which is byType but if all types are same then 
 	// qualifire will check the qualified value, where value is mapped, we will get bean 
 	
-	@Autowired
-	@Qualifier("circleRelated")
+	@Resource(name="pointC")
+	// this annotation can do dependency injection by name, just write property name you want to inject
+	// it will inject the dependency of given name
+	// if no name is given then it look for the name of member variable
 	public void setCenter(Point center) {
 		this.center = center;
 	}
