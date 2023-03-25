@@ -1,5 +1,7 @@
 package com.rohuu.drawingApp;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,18 @@ public class Circle implements Shape {
 	public void draw() {
 		System.out.println("Drawing triangle");
 		System.out.println("Circle: Point is: ("+center.getX()+", "+center.getY()+")");
+	}
+	
+	
+	@PostConstruct
+	// configuring init and destroy method for circle bean without using xml configuration.... using annotation
+	public void initializeCircle() {
+		System.out.println("Init of circle");
+	}
+	
+	@PreDestroy
+	public void destroyCircle() {
+		System.out.println("Destroy of circle");
 	}
 
 }
