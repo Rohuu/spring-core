@@ -36,9 +36,17 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 <property name="y" value="0"/>
 </bean>
 
-<bean id="circle" class="com.rohuu.drawingApp.Circle">
-</bean>
+<!-- no need to write this now, coz we have written @Component in class -->
+<!-- <bean id="circle" class="com.rohuu.drawingApp.Circle"> -->
+<!-- </bean> -->
 
 <context:annotation-config/>
-<!-- this tag will bring all the all the annotation class declarations -->
+<!-- this tag will bring all the annotation class declarations -->
+
+
+
+<!-- this will scan for all the classes those are set as bean in the described package -->
+<context:component-scan base-package="com.rohuu.drawingApp"></context:component-scan>
+
+
 </beans>

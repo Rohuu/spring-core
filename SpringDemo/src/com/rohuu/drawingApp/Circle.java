@@ -6,7 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Circle implements Shape {
 	
 	private Point center;
@@ -14,11 +16,7 @@ public class Circle implements Shape {
 	public Point getCenter() {
 		return center;
 	}
-	
-//	but if we can't changes the id name...... then .... ?
-//	 then we use another annotation called @Qualifier
-	// first autowired mapping will be tested which is byType but if all types are same then 
-	// qualifire will check the qualified value, where value is mapped, we will get bean 
+
 	
 	@Resource(name="pointC")
 	// this annotation can do dependency injection by name, just write property name you want to inject
