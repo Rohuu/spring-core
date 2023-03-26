@@ -11,12 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-@Controller
-//@Component: it is general bean, rest all are general bean with some kind of roles
-// @Service: tells additional info to spring that it is a service bean
-// @Repository: tells additional info to spring that it is a data object bean
-// @Controller: tells additional info to spring that it is a controller bean
-
+@Component
 public class Circle implements Shape {
 	
 	private Point center;
