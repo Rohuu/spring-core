@@ -44,8 +44,8 @@ public class Circle implements Shape {
 
 	@Override
 	public void draw() {
-		System.out.println("Drawing triangle");
-		System.out.println("Circle: Point is: ("+center.getX()+", "+center.getY()+")");
+		System.out.println(this.messageSource.getMessage("drawing.circle", null,"Default Drawing Message",null));
+		System.out.println(this.messageSource.getMessage("drawing.point", new Object[] {center.getX(),center.getY()},"Default Point Message",null));
 		System.out.println(this.messageSource.getMessage("greeting", null,"Default Greeting",null));
 	}
 	

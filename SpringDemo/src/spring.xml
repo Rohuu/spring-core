@@ -33,7 +33,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
 <bean id="pointC" class="com.rohuu.drawingApp.Point">
 <property name="x" value="20"/>
-<property name="y" value="0"/>
+<property name="y" value="50"/>
 </bean>
 
 <!-- no need to write this now, coz we have written @Component in class -->
